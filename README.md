@@ -1,6 +1,6 @@
 Deployment:
 - mbt build
-- cf deploy mta_archives/project1_0.0.1.mtar
+- cf deploy mta_archives/notesapp_0.0.1.mtar
 
 
 ## Application Details
