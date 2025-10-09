@@ -22,7 +22,7 @@ modules:
       instance:
         destinations:
         - Name: notesapp_html_repo_host
-          ServiceInstanceName: notesapp-html5-service
+          ServiceInstanceName: notesapp-repo-host
           ServiceKeyName: notesapp-repo-host-key
           sap.cloud.service: notesapp
         - Authentication: OAuth2UserTokenExchange
@@ -50,6 +50,9 @@ modules:
 - name: notesapp
   type: html5
   path: .
+  requires:
+    - name: notesapp-repo-host
+    - name: notesapp-repo-runtime 
   build-parameters:
     build-result: dist
     builder: custom
@@ -57,6 +60,32 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+
+- name: notesapp-approuter
+  type: approuter.nodejs
+  path: approuter
+  parameters:
+    memory: 512M
+    disk-quota: 512M
+    routes:
+      - route: https://ea7f4d11trial-notesapp.${default-domain}
+      - route: https://subcriber-zft5b92r-notesapp.${default-domain}
+    buildpacks:
+      - nodejs_buildpack
+  properties:
+    TENANT_HOST_PATTERN: "^(.*)-notesapp.cfapps.us10-001.hana.ondemand.com"
+  
+  build-parameters:
+      builder: custom
+      commands:
+        - npm install
+  requires:
+    - name: notesapp-uaa
+    - name: notesapp-destination-service
+    - name: notesapp-repo-runtime
+    - name: saas-registry-notes
+    - name: connectivity
+
 resources:
 - name: notesapp-destination-service
   type: org.cloudfoundry.managed-service
@@ -87,8 +116,46 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: notesapp-html5-service
+    service-name: notesapp-repo-host
     service-plan: app-host
+
+- name: notesapp-repo-host-key
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+    service-name: notesapp-repo-host
+    service-key:
+      name: notesapp-repo-host-key
+
+- name: notesapp-repo-runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+    service-name: notesapp-repo-runtime
+
+- name: connectivity
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: connectivity
+    service-name: connectivity-service
+    service-plan: lite
+
+- name: saas-registry-notes
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: saas-registry
+    service-plan: application
+    config:
+      xsappname: notesapp
+      appName: notesapp
+      displayName: Notes App
+      description: Multitenant Notes application
+      category: Custom Apps
+      appUrls:
+        onSubscription: https://ea7f4d11trial-notesapp.${default-domain}/callback/v1.0/tenants/{tenantId}
+        getDependencies: https://ea7f4d11trial-notesapp.${default-domain}/callback/v1.0/dependencies
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
