@@ -19,4 +19,4 @@ builder:
         archiveName: notesapp
         relativePaths: true
         additionalFiles:
-          - xs-app.json
+          - approuter/xs-app.json

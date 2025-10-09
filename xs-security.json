@@ -1,7 +1,39 @@
 {
   "xsappname": "notesapp",
-  "tenant-mode": "dedicated",
+  "tenant-mode": "shared",
   "description": "Security profile of called application",
-  "scopes": [],
-  "role-templates": []
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.User",
+      "description": "Default user access"
+    },
+    {
+        "name": "$XSAPPNAME.Callback",
+        "description": "Callback for tenant onboarding, offboarding, getDependencies",
+        "grant-as-authority-to-apps": [
+          "$XSAPPNAME(application,sap-provisioning,tenant-onboarding)"
+        ]
+      }
+  ],
+  "role-templates": [
+    {
+      "name": "User",
+      "description": "Grants default user access",
+      "scope-references": [
+        "$XSAPPNAME.User"
+      ]
+    },
+    {
+      "name": "Token_Exchange",
+      "description": "UAA allows token exchange",
+      "scope-references": ["$XSAPPNAME.Callback"]
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.cfapps.us10-001.hana.ondemand.com/**",  
+      "https://**.hana.ondemand.com/login/callback",
+      "https://**.applicationstudio.cloud.sap/login/callback"
+    ]
+  }
 }

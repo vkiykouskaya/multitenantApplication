@@ -1,0 +1,281 @@
+{
+    "destinations": [
+		{
+			"name": "SAP_ABAP_BACKEND",
+			"url": "http://localhost.leverx.local:8443",
+			"proxyType": "OnPremise"
+		}
+	],
+    "VCAP_SERVICES": {
+        "saas-registry": [
+			{
+				"label": "saas-registry",
+				"provider": null,
+				"plan": "application",
+				"name": "saas-registry-notes",
+				"tags": [
+					"SaaS"
+				],
+				"instance_guid": "e3a4b4d5-02e7-4412-ae41-ee934de9f339",
+				"instance_name": "saas-registry-notes",
+				"binding_guid": "c9915122-bc6f-49ed-8caf-5304c9eee64f",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "dedicated",
+					"sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+					"subaccountid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"credential-type": "binding-secret",
+					"clientid": "sb-notesapp-clone!b512614|lps-registry-broker!b4",
+					"xsappname": "notesapp",
+					"appName": "notesapp",
+					"clientsecret": "c9915122-bc6f-49ed-8caf-5304c9eee64f$-ep6IZrbdXI-VXfM7dwOykleY6K6BBW5IsOwlB-qKD4=",
+					"tenant_onboarding_url": "https://saas-manager.mesh.cf.us10.hana.ondemand.com",
+					"saas_registry_url": "https://saas-manager.mesh.cf.us10.hana.ondemand.com",
+					"appUrls": "{\"getDependencies\":\"https://ea7f4d11trial-notesapp.cfapps.us10-001.hana.ondemand.com/callback/v1.0/dependencies\",\"onSubscription\":\"https://ea7f4d11trial-notesapp.cfapps.us10-001.hana.ondemand.com/callback/v1.0/tenants/{tenantId}\",\"getSubscriptionParameters\":\"\",\"onSubscriptionAsync\":false,\"onUnSubscriptionAsync\":false,\"onUpdateSubscriptionParametersAsync\":false,\"callbackTimeoutMillis\":0,\"runGetDependenciesOnAsyncCallback\":false,\"onUpdateDependenciesAsync\":false}",
+					"serviceInstanceId": "e3a4b4d5-02e7-4412-ae41-ee934de9f339",
+					"description": "Multitenant Notes application",
+					"display_name": "Notes App",
+					"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+					"uaadomain": "authentication.us10.hana.ondemand.com",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+					"apiurl": "https://api.authentication.us10.hana.ondemand.com",
+					"identityzone": "ea7f4d11trial",
+					"identityzoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"zoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"category": "Custom Apps"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"xsuaa": [
+			{
+				"label": "xsuaa",
+				"provider": null,
+				"plan": "application",
+				"name": "notesapp-xsuaa-service",
+				"tags": [
+					"xsuaa"
+				],
+				"instance_guid": "017046b2-04d8-4ec4-b2e5-202fdb41b418",
+				"instance_name": "notesapp-xsuaa-service",
+				"binding_guid": "5232d02f-8ab2-4fdc-91eb-08f980a909c3",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "shared",
+					"sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+					"subaccountid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"credential-type": "binding-secret",
+					"clientid": "sb-notesapp!t512614",
+					"xsappname": "notesapp!t512614",
+					"clientsecret": "5232d02f-8ab2-4fdc-91eb-08f980a909c3$FG9rtG_KmgncVSgWwknT7W7yIgbyeoylIIHNOMmw8sk=",
+					"serviceInstanceId": "017046b2-04d8-4ec4-b2e5-202fdb41b418",
+					"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+					"uaadomain": "authentication.us10.hana.ondemand.com",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+					"apiurl": "https://api.authentication.us10.hana.ondemand.com",
+					"identityzone": "ea7f4d11trial",
+					"identityzoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"zoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"connectivity": [
+			{
+				"label": "connectivity",
+				"provider": null,
+				"plan": "lite",
+				"name": "connectivity-service",
+				"tags": [
+					"connectivity",
+					"conn",
+					"connsvc"
+				],
+				"instance_guid": "d2f23e83-ddda-4c25-9b6d-13b3cd43c3bd",
+				"instance_name": "connectivity-service",
+				"binding_guid": "813ac22e-3485-497d-92d9-faa4cfac8236",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "dedicated",
+					"token-type": [
+						"xsuaa",
+						"ias"
+					],
+					"clientid": "sb-cloned2f23e83ddda4c259b6d13b3cd43c3bd!b512614|connectivity!b23892",
+					"token_service_domain": "authentication.us10.hana.ondemand.com",
+					"credential-type": "binding-secret",
+					"token_service_url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+					"xsappname": "cloned2f23e83ddda4c259b6d13b3cd43c3bd!b512614|connectivity!b23892",
+					"onpremise_proxy_ldap_port": "20001",
+					"onpremise_socks5_proxy_port": "20004",
+					"clientsecret": "813ac22e-3485-497d-92d9-faa4cfac8236$Y7PSCaVXSbmdBzkYldUzki_9-TkVmP6HX-Oi1UGpeHM=",
+					"onpremise_proxy_http_port": "20003",
+					"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+					"onpremise_proxy_host": "connectivityproxy.internal.cf.us10-001.hana.ondemand.com",
+					"uaadomain": "authentication.us10.hana.ondemand.com",
+					"onpremise_proxy_port": "20003",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+					"identityzone": "ea7f4d11trial",
+					"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+					"onpremise_proxy_rfc_port": "20001",
+					"region_configuration_id": "cf-us10-001"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"html5-apps-repo": [
+			{
+				"label": "html5-apps-repo",
+				"provider": null,
+				"plan": "app-host",
+				"name": "notesapp-repo-host",
+				"tags": [
+					"html5appsrepo",
+					"html5-apps-repo-rt",
+					"html5-apps-rt",
+					"html5-apps-repo-dt",
+					"html5-apps-dt"
+				],
+				"instance_guid": "afe0407d-c201-4d78-bd04-e75cce9a83a9",
+				"instance_name": "notesapp-repo-host",
+				"binding_guid": "aa82d89b-ae6a-4b15-8143-ed2d3f975214",
+				"binding_name": null,
+				"credentials": {
+					"vendor": "SAP",
+					"uri": "https://html5-apps-repo-dt.cfapps.us10.hana.ondemand.com",
+					"uaa": {
+						"tenantmode": "dedicated",
+						"sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+						"subaccountid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"credential-type": "binding-secret",
+						"clientid": "sb-afe0407d-c201-4d78-bd04-e75cce9a83a9!b512614|html5-apps-repo-uaa!b424",
+						"xsappname": "afe0407d-c201-4d78-bd04-e75cce9a83a9!b512614|html5-apps-repo-uaa!b424",
+						"clientsecret": "aa82d89b-ae6a-4b15-8143-ed2d3f975214$gKx-OOgzxmVocxUe_6b8S5KroIyyCaaZyhkbCbcuHg0=",
+						"serviceInstanceId": "afe0407d-c201-4d78-bd04-e75cce9a83a9",
+						"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+						"uaadomain": "authentication.us10.hana.ondemand.com",
+						"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+						"apiurl": "https://api.authentication.us10.hana.ondemand.com",
+						"identityzone": "ea7f4d11trial",
+						"identityzoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"zoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69"
+					},
+					"app_host_id": "afe0407d-c201-4d78-bd04-e75cce9a83a9",
+					"sap.cloud.service": "html5-apps-repo-dt",
+					"content_endpoint": "https://html5-apps-repo-dt.cfapps.us10.hana.ondemand.com",
+					"saasregistryenabled": true
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			},
+			{
+				"label": "html5-apps-repo",
+				"provider": null,
+				"plan": "app-runtime",
+				"name": "notesapp-repo-runtime",
+				"tags": [
+					"html5appsrepo",
+					"html5-apps-repo-rt",
+					"html5-apps-rt",
+					"html5-apps-repo-dt",
+					"html5-apps-dt"
+				],
+				"instance_guid": "611a1a4d-2259-4d32-8dd8-9784a8396fee",
+				"instance_name": "notesapp-repo-runtime",
+				"binding_guid": "0c7c0e12-276a-47b8-971c-3a760850af7a",
+				"binding_name": null,
+				"credentials": {
+					"vendor": "SAP",
+					"uri": "https://html5-apps-repo-rt.cfapps.us10.hana.ondemand.com",
+					"uaa": {
+						"tenantmode": "dedicated",
+						"sburl": "https://internal-xsuaa.authentication.us10.hana.ondemand.com",
+						"subaccountid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"credential-type": "binding-secret",
+						"clientid": "sb-611a1a4d-2259-4d32-8dd8-9784a8396fee!b512614|html5-apps-repo-uaa!b424",
+						"xsappname": "611a1a4d-2259-4d32-8dd8-9784a8396fee!b512614|html5-apps-repo-uaa!b424",
+						"clientsecret": "0c7c0e12-276a-47b8-971c-3a760850af7a$Mx5FkAv8fgGAIxq2uU5ESYSSQZRgttbsRy8vmBPCte8=",
+						"serviceInstanceId": "611a1a4d-2259-4d32-8dd8-9784a8396fee",
+						"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+						"uaadomain": "authentication.us10.hana.ondemand.com",
+						"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+						"apiurl": "https://api.authentication.us10.hana.ondemand.com",
+						"identityzone": "ea7f4d11trial",
+						"identityzoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69",
+						"zoneid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69"
+					},
+					"grant_type": "client_credentials",
+					"sap.cloud.service": "html5-apps-repo-rt",
+					"saasregistryenabled": true
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		],
+		"destination": [
+			{
+				"label": "destination",
+				"provider": null,
+				"plan": "lite",
+				"name": "notesapp-destination-service",
+				"tags": [
+					"destination",
+					"conn",
+					"connsvc"
+				],
+				"instance_guid": "28e3d935-cb4b-4426-8aa6-f7362732bc8d",
+				"instance_name": "notesapp-destination-service",
+				"binding_guid": "a45590b7-8381-4a0f-9b21-bd15f2766f7d",
+				"binding_name": null,
+				"credentials": {
+					"tenantmode": "dedicated",
+					"token-type": [
+						"xsuaa",
+						"ias"
+					],
+					"clientid": "sb-clone28e3d935cb4b44268aa6f7362732bc8d!b512614|destination-xsappname!b62",
+					"credential-type": "binding-secret",
+					"xsappname": "clone28e3d935cb4b44268aa6f7362732bc8d!b512614|destination-xsappname!b62",
+					"clientsecret": "a45590b7-8381-4a0f-9b21-bd15f2766f7d$n_el5kzG3aplnacGv3aDlKDcjZG_9rKIYVAQOuvWERk=",
+					"uri": "https://destination-configuration.cfapps.us10.hana.ondemand.com",
+					"url": "https://ea7f4d11trial.authentication.us10.hana.ondemand.com",
+					"uaadomain": "authentication.us10.hana.ondemand.com",
+					"instanceid": "28e3d935-cb4b-4426-8aa6-f7362732bc8d",
+					"verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0ZVySxDEgyhl2rI72GXc\nxoSRpmyj++3hWLvnTs2Ij8d3O81KqvZdrPYZnS6w8Q26+3ouKF2QTxnNR7cQOH3C\nVr74jxj1CCVu7zNnMICYlOilj+xEn/8U3mdHpIBCIrW0TV+K1NJFzBBXORaxDa/T\nzfpoguiEOS/pjZYzFwoAZLZWO355oBhxUndv24+UQ9Z9i3JuIbvyy6vQ8R1FuESY\nhHbCjtKyifrizX4lc7wgq2ZJp6Dp0n0tMvpVe4NE47XUknv6qR6A9T8u5Z0ak2H9\nlZvADAoQrxE+gqxoHU5Efud+4h1C8TXQT9HTEKZKZXTDFBJv5mLLik90xP+Jc9pA\nGQIDAQAB\n-----END PUBLIC KEY-----",
+					"identityzone": "ea7f4d11trial",
+					"tenantid": "82774f32-0b6d-4376-a2cb-ba6282fd4e69"
+				},
+				"syslog_drain_url": null,
+				"volume_mounts": []
+			}
+		]
+    },
+	"VCAP_APPLICATION": {
+		"application_id": "26ea291b-0b88-4456-85ac-1beb3cd4c3fc",
+		"application_name": "notesapp-approuter",
+		"application_uris": [
+			"notesapp-approuter.cfapps.us10-001.hana.ondemand.com"
+		],
+		"cf_api": "https://api.cf.us10-001.hana.ondemand.com",
+		"limits": {
+			"fds": 32768
+		},
+		"name": "notesapp-approuter",
+		"organization_id": "49ec6bd5-6e1e-4f5d-ab91-f536b06279e2",
+		"organization_name": "ea7f4d11trial",
+		"space_id": "e87e38e1-5774-402a-af3d-1bdd3281e6a3",
+		"space_name": "dev",
+		"uris": [
+			"notesapp-approuter.cfapps.us10-001.hana.ondemand.com"
+		],
+		"users": null
+	},
+	"TENANT_HOST_PATTERN": "^(.*)-notesapp.cfapps.us10-001.hana.ondemand.com"
+}
